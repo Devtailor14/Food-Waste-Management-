@@ -123,9 +123,14 @@ if($_SESSION['name']==''){
              <label for="location" class="logo">Select Location:</label>
              <!-- <br> -->
             <select id="location" name="location">
+               <option value="delhi">delhi</option>
+               <option value="mumbai">mumbai</option>
+               <option value="kolkata">kolkata</option>
                <option value="chennai">chennai</option>
-               <option value="madurai">madurai</option>
-               <option value="coimbatore">coimbatore</option>
+               <option value="bangalore">bangalore</option>
+               <option value="hyderabad">hyderabad</option>
+               <option value="pune">pune</option>
+               <option value="lucknow">lucknow</option>
         
             </select>
                 <input type="submit" value="Get Details">

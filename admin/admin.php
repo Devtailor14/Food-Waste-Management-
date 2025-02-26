@@ -143,7 +143,7 @@ if($_SESSION['name']==''){
                     </div>
                     <div class="box box3">
                         <i class="uil uil-heart"></i>
-                        <span class="text">Total doantes</span>
+                        <span class="text">Total Donations</span>
                         <?php
                            $query="SELECT count(*) as count FROM food_donations";
                            $result=mysqli_query($connection, $query);
