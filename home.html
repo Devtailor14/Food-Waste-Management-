@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food Donate</title>
-    <link rel="stylesheet" href="home.css">
+    <title>Food Donate - Home</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body {
@@ -23,6 +22,7 @@
             width: 100%;
             top: 0;
             z-index: 1000;
+            box-sizing: border-box;
         }
         .logo {
             font-size: 24px;
@@ -43,6 +43,7 @@
             display: flex;
             list-style: none;
             padding: 0;
+            margin: 0;
         }
         .nav-bar ul li {
             margin: 0 15px;
@@ -51,6 +52,10 @@
             text-decoration: none;
             color: #333;
             font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        .nav-bar ul li a:hover, .nav-bar ul li a.active {
+            color: #06C167;
         }
         .banner {
             display: flex;
@@ -60,18 +65,41 @@
             background: url('img/coverimage.jpeg') no-repeat center center/cover;
             text-align: center;
             position: relative;
+            margin-top: 60px;
         }
         .donate-btn {
-            padding: 12px 20px;
-            background: #06C167;
-            color: #fff;
-            text-decoration: none;
-            font-size: 20px;
-            border-radius: 5px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+        padding: 20px 35px;
+        background: linear-gradient(45deg, #06C167, #28a745);
+        color: #fff;
+        text-decoration: none;
+        font-size: 32px;
+        font-weight: bold;
+        border-radius: 50px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: all 0.3s ease;
+        box-shadow: 0 0 15px rgba(6, 193, 103, 0.6);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        }
+
+        .donate-btn i {
+        font-size: 28px;
+        }
+
+        .donate-btn:hover {
+            background: linear-gradient(45deg, #28a745, #06C167);
+            box-shadow: 0 0 20px rgba(6, 193, 103, 0.9);
+            transform: translate(-50%, -50%) scale(1.05);
+        }
+        .heading {
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
         }
         .photo, .deli, .motto {
             text-align: center;
@@ -91,6 +119,10 @@
             width: 100%;
             max-width: 300px;
             border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        .box img:hover {
+            transform: scale(1.05);
         }
         .footer {
             background: #333;
@@ -106,6 +138,17 @@
             margin: 0 10px;
             font-size: 20px;
             text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .sociallist a:hover {
+            color: #06C167;
+        }
+        .footer a {
+            color: #06C167;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
         }
         @media (max-width: 768px) {
             .nav-bar ul {
@@ -120,6 +163,10 @@
             }
             .nav-bar.active ul {
                 display: flex;
+            }
+            .nav-bar ul li {
+                margin: 10px 0;
+                text-align: center;
             }
             .hamburger {
                 display: block;
@@ -137,7 +184,7 @@
         </div>
         <nav class="nav-bar">
             <ul>
-                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="home.html" class="active">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="profile.php">Profile</a></li>
@@ -150,24 +197,26 @@
         }
     </script>
     <section class="banner">
-        <a href="fooddonateform.php" class="donate-btn">Donate Food</a>
+        <a href="fooddonateform.php" class="donate-btn">
+            <i class="fa fa-cutlery"></i> Donate Food
+        </a>
     </section>
     <div class="motto">
-        <h2>"Rescuing surplus food, feeding hungry souls – because no meal should go to waste."</h2>
+        <h2 class="heading">"Rescuing surplus food, feeding hungry souls – because no meal should go to waste."</h2>
     </div>
     
     <div class="photo">
         <h2 class="heading">Our Works</h2>
         <p>"Look what we can do together."</p>
         <div class="wrapper">
-            <div class="box"><img src="img/p1.jpeg" alt=""></div>
-            <div class="box"><img src="img/p4.jpeg" alt=""></div>
-            <div class="box"><img src="img/p3.jpeg" alt=""></div>
+            <div class="box"><img src="img/p1.jpeg" alt="Food donation event"></div>
+            <div class="box"><img src="img/p4.jpeg" alt="Community meal distribution"></div>
+            <div class="box"><img src="img/p3.jpeg" alt="Food preparation"></div>
         </div>
     </div>
     <div class="deli">
         <h2 class="heading">DOOR PICKUP</h2>
-        <p class="para">"Your donation will be immediately collected and sent to needy people"</p>
+        <p>"Your donation will be immediately collected and sent to needy people"</p>
         <img src="img/delivery.gif" alt="Delivery">
     </div>
     <footer class="footer">
@@ -178,7 +227,7 @@
             <a href="https://www.instagram.com/charitism/"><i class="fa fa-instagram"></i></a>
             <a href="https://web.whatsapp.com/"><i class="fa fa-whatsapp"></i></a>
         </div>
-        <p>Contact: (+00) 0000 000 000 | Email: <a href="mailto:Fooddonate@gmail.com">Fooddonate@gmail.com</a></p>
+        <p>Contact: (+91) 9702251090 | Email: <a href="mailto:Fooddonate@gmail.com" style="color: #06C167;">Fooddonate@gmail.com</a></p>
     </footer>
 </body>
 </html>
