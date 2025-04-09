@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Donate - Login</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Gradient Background */
+        body {
+            background: linear-gradient(to bottom, #ecfdf5, #fff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            transition: background 0.3s ease-in-out;
+        }
+
+        /* Dark Mode */
+        .dark-mode {
+            background: linear-gradient(to bottom, #1a1a1a, #000);
+            color: #ddd;
+        }
+
+        /* Card Styling */
+        .container {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 50px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            width: 380px;
+            position: relative;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .dark-mode .container {
+            background: rgba(30, 30, 30, 0.9);
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        .logo b {
+            color: #06C167;
+        }
+
+        .para {
+            font-size: 20px;
+            margin: 10px 0 20px;
+        }
+
+        /* Button Styling */
+        .log {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            font-size: 20px;
+            background: #06C167;
+            padding: 18px;
+            text-decoration: none;
+            font-weight: 600;
+            color: #fff;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        a:hover {
+            background-color: #04a356;
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        a i {
+            margin-right: 10px;
+            font-size: 22px;
+        }
+
+        /* Dark Mode Toggle Button */
+        .toggle-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: transparent;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: #000;
+        }
+
+        .dark-mode .toggle-btn {
+            color: #fff;
+        }
+
+        .toggle-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Responsive Design */
+        @media only screen and (max-width: 480px) {
+            .container {
+                width: 90%;
+                padding: 35px;
+            }
+
+            .logo {
+                font-size: 28px;
+            }
+
+            a {
+                font-size: 18px;
+                padding: 14px;
+            }
+
+            .toggle-btn {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="toggle-btn" onclick="toggleMode()">🌙</button>
+
+        <p class="logo">Welcome to Food <b>Donate</b></p>
+        <p class="para">Login as</p>
+
+        <div class="log">
+            <a href="signup.php"><i class="fa-solid fa-user"></i> User</a>
+            <a href="admin/signup.php"><i class="fa-solid fa-user-gear"></i> Admin</a>
+            <a href="delivery/deliverysignup.php" id="delivery"><i class="fa-solid fa-motorcycle"></i> Delivery</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle("dark-mode");
+            let icon = document.querySelector(".toggle-btn");
+            icon.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+        }
+    </script>
+</body>
+</html>
+
