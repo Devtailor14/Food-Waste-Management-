@@ -110,47 +110,25 @@ if(isset($_POST['submit']))
       <input type="text" id="phoneno" name="phoneno" maxlength="10" pattern="[0-9]{10}" required />
         
       </div>
-      </div>
-        <div class="input">
-        <label for="location"></label>
-        <label for="district">District:</label>
-<select id="district" name="district" style="padding:10px;">
-  <option value="chennai">Chennai</option>
-  <option value="kancheepuram">Kancheepuram</option>
-  <option value="thiruvallur">Thiruvallur</option>
-  <option value="vellore">Vellore</option>
-  <option value="tiruvannamalai">Tiruvannamalai</option>
-  <option value="tiruvallur">Tiruvallur</option>
-  <option value="tiruppur">Tiruppur</option>
-  <option value="coimbatore">Coimbatore</option>
-  <option value="erode">Erode</option>
-  <option value="salem">Salem</option>
-  <option value="namakkal">Namakkal</option>
-  <option value="tiruchirappalli">Tiruchirappalli</option>
-  <option value="thanjavur">Thanjavur</option>
-  <option value="pudukkottai">Pudukkottai</option>
-  <option value="karur">Karur</option>
-  <option value="ariyalur">Ariyalur</option>
-  <option value="perambalur">Perambalur</option>
-  <option value="madurai" selected>Madurai</option>
-  <option value="virudhunagar">Virudhunagar</option>
-  <option value="dindigul">Dindigul</option>
-  <option value="ramanathapuram">Ramanathapuram</option>
-  <option value="sivaganga">Sivaganga</option>
-  <option value="thoothukkudi">Thoothukkudi</option>
-  <option value="tirunelveli">Tirunelveli</option>
-  <option value="tiruppur">Tiruppur</option>
-  <option value="tenkasi">Tenkasi</option>
-  <option value="kanniyakumari">Kanniyakumari</option>
-</select> 
+</div>
+<div class="input">
+    <label for="location"></label>
+    <label for="district">District:</label>
+    <select id="district" name="district" style="padding:10px;">
+        <option value="mumbai">Mumbai</option>
+        <option value="chennai">Chennai</option>
+        <option value="kolkata">Kolkata</option>
+        <option value="hyderabad">Hyderabad</option>
+        <option value="delhi">Delhi</option>
+        <option value="pune">Pune</option>
+        <option value="bangalore">Bangalore</option>
+        <option value="lucknow">Lucknow</option>
+    </select>
 
-        <label for="address" style="padding-left: 10px;">Address:</label>
-        <input type="text" id="address" name="address" required/><br>
-        
-      
-       
-       
-        </div>
+    <label for="address" style="padding-left: 10px;">Address:</label>
+    <input type="text" id="address" name="address" required/>
+</div>
+
         <div class="btn">
             <button type="submit" name="submit"> submit</button>
      
