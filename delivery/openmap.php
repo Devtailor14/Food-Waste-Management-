@@ -12,7 +12,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
     <link rel="stylesheet" href="../home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" />
-    <!-- <link rel="stylesheet" href="delivery.css"> -->
+    <link rel="stylesheet" href="delivery.css">
     <style>
       
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');

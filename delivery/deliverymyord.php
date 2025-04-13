@@ -63,11 +63,11 @@ $id=$_SESSION['Did'];
             text-align: center; font-size: 28PX;color: black; 
         }
         a{
-            /* text-decoration: underline; */
+            text-decoration: underline;
         }
         @media (max-width: 767px) {
             .itm{
-                /* float: left; */
+                float: left;
                 
             }
             .itm img{

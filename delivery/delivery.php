@@ -14,8 +14,6 @@ $name = $_SESSION['name'];
 $city = $_SESSION['city'];
 $id = $_SESSION['Did'];
 
-
-
 // Fetch orders
 $sql = "SELECT 
             fd.Fid AS Fid,
@@ -25,6 +23,8 @@ $sql = "SELECT
             fd.date,
             fd.delivery_by,
             fd.address as From_address, 
+            fd.latitude,
+            fd.longitude,
             ad.name AS delivery_person_name,
             ad.address AS To_address
         FROM food_donations fd
@@ -40,8 +40,18 @@ if (!$result) {
 }
 
 $data = [];
+$lat = 23.2599; // default fallback (e.g., Bhopal)
+$lng = 77.4126;
+
 while ($row = mysqli_fetch_assoc($result)) {
     $data[] = $row;
+}
+
+if (!empty($data)) {
+    if (!empty($data[0]['latitude']) && !empty($data[0]['longitude'])) {
+        $lat = $data[0]['latitude'];
+        $lng = $data[0]['longitude'];
+    }
 }
 
 // Assign order
@@ -74,8 +84,10 @@ if (isset($_POST['food']) && isset($_POST['order_id']) && isset($_POST['delivery
     <meta charset="UTF-8">
     <title>Delivery Dashboard</title>
     <link rel="stylesheet" href="../home.css">
-    <link rel="stylesheet" href="delivery.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="../home.css">
+
     <style>
         .itm {
             background-color: white;
@@ -97,16 +109,20 @@ if (isset($_POST['food']) && isset($_POST['order_id']) && isset($_POST['delivery
             margin: 20px;
         }
         .log a {
-            background-color: #06C167;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .log a:hover {
-            background-color: #05985b;
-        }
+    background-color: #06C167;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin: 5px;
+}
+.log a:hover {
+    background-color: #05985b;
+}
+
+        
         .table-container {
             padding: 20px;
         }
@@ -132,12 +148,11 @@ if (isset($_POST['food']) && isset($_POST['order_id']) && isset($_POST['delivery
         button:hover {
             background-color: #05985b;
         }
-
-        @media (max-width: 767px) {
-            .itm img {
-                width: 350px;
-                height: 350px;
-            }
+        #map {
+            height: 300px;
+            width: 100%;
+            margin-top: 20px;
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -165,14 +180,15 @@ if (isset($_POST['food']) && isset($_POST['order_id']) && isset($_POST['delivery
 </script>
 
 <h2><center>Welcome, <?= htmlspecialchars($name) ?></center></h2>
-
 <div class="itm">
     <img src="../img/delivery.gif" alt="Delivery">
 </div>
-
 <div class="log">
     <a href="deliverymyord.php">My Orders</a>
+    <br><br>
+    <a href="sharelocation.php">View Live Location</a>
 </div>
+
 
 <div class="table-container">
     <div class="table-wrapper">
@@ -215,5 +231,20 @@ if (isset($_POST['food']) && isset($_POST['order_id']) && isset($_POST['delivery
     </div>
 </div>
 
+<div id="map"></div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+    const deliveryLat = <?= json_encode($lat) ?>;
+    const deliveryLng = <?= json_encode($lng) ?>;
+
+    const map = L.map('map').setView([deliveryLat, deliveryLng], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    L.marker([deliveryLat, deliveryLng]).addTo(map)
+        .bindPopup('Delivery Location')
+        .openPopup();
+</script>
 </body>
 </html>
